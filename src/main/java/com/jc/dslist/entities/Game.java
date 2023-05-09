@@ -25,7 +25,7 @@ public class Game {
 	private Double score;
 	private String imgUrl;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT") //Instrução inserida para o jpa não "subir" o banco com varchar[255]
 	private String shortDescription;
 	
 	@Column(columnDefinition = "TEXT")
@@ -46,6 +46,8 @@ public class Game {
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
 	}
+	
+	//Declarando geters and seters
 
 	public Long getId() {
 		return id;
@@ -119,6 +121,8 @@ public class Game {
 		this.longDescription = longDescription;
 	}
 
+	
+	//instrução + hashCode equals para comparar os objetos
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);		
