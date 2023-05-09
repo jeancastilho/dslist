@@ -24,7 +24,11 @@ public class Game {
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {
@@ -117,7 +121,7 @@ public class Game {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id);		
 	}
 
 	@Override
