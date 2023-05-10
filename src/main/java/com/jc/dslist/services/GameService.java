@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.jc.dslist.dto.GameDTO;
 import com.jc.dslist.dto.GameMinDTO;
 import com.jc.dslist.entities.Game;
 import com.jc.dslist.respositories.GameRepository;
@@ -15,6 +17,15 @@ public class GameService {
 	@Autowired //Injeta o GameRepository
 	private GameRepository gameRepository;
 
+	@Transactional(readOnly = true) //Boas praticas para garantir que as operações com o BDA seka transacional respeitando a norma da ACID  
+	public GameDTO findById(Long id) {
+		
+		Game result = gameRepository.findById(id).get();
+		GameDTO dto = new GameDTO(result);
+		return dto;
+	}
+	
+	@Transactional(readOnly = true) 
 	public List<GameMinDTO> findAll(){
 		
 		List<Game> result = gameRepository.findAll();
