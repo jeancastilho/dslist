@@ -1,6 +1,7 @@
 package com.jc.dslist.dto;
 
 import com.jc.dslist.entities.Game;
+import com.jc.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 	
@@ -10,8 +11,7 @@ public class GameMinDTO {
 	private String imgUrl;
 	private String shortDescription;
 	
-	public GameMinDTO() {
-		
+	public GameMinDTO() {	
 	}
 
 	//instancia o contrutor(GameMinDTO) apartir do objeto "Game", copiando os dados do game para o DTO
@@ -23,6 +23,14 @@ public class GameMinDTO {
 		shortDescription = entity.getShortDescription(); 
 	}
 
+	public GameMinDTO(GameMinProjection projection) {
+	    id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription(); 
+	}
+	
 	public Long getId() {
 		return id;
 	}

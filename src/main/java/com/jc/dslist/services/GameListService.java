@@ -17,8 +17,6 @@ public class GameListService {
 	@Autowired //Injeta o GameListRepository para realizar busca
 	private GameListRepository gameListRepository;
 
-	
-	
 	@Transactional(readOnly = true) 
 	public List<GameListDTO> findAll(){
 		

@@ -121,7 +121,6 @@ public class Game {
 		this.longDescription = longDescription;
 	}
 
-	
 	//instrução + hashCode equals para comparar os objetos
 	@Override
 	public int hashCode() {
